@@ -683,6 +683,62 @@
   "blocks": [
     {
       "type": "@app"
+    },
+    {
+      "type": "megamenu",
+      "name": "megamenu",
+      "limit": 5,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "imageselect",
+          "label": "Select mega menu image"
+        },
+        {
+          "type": "text",
+          "id": "megamenu_selector",
+          "label": "Mega menu selector",
+          "info": "Please enter the exact main-menu item name that appears in the navigation. No child items."
+        },
+        {
+          "type": "text",
+          "id": "megamenu_title",
+          "label": "Mega menu title"
+        },
+        {
+          "type": "text",
+          "id": "megamenu_subtitle",
+          "label": "Mega menu subtitle"
+        },
+        {
+          "type": "text",
+          "id": "megamenu_button-text",
+          "label": "Mega menu button text"
+        },
+        {
+          "type": "url",
+          "id": "megamenu_button-url",
+          "label": "Mega menu button link"
+        },
+        {
+          "type": "color",
+          "id": "megamenu_background-color",
+          "label": "Megamenu background color"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "megamenu",
+      "blocks": [
+        {
+          "type": "megamenu"
+        },
+        {
+          "type": "megamenu"
+        }
+      ]
     }
   ]
 }

@@ -104,6 +104,40 @@
                               </li>
                             {%- endfor -%}
                           </ul>
+                          {% for block_data in section.blocks %}
+                            {% if block_data.type == 'megamenu'
+                              and link.title == block_data.settings.megamenu_selector
+                            %}
+                              <div class="megamenu__data">
+                                <div class="megamenu__datatext">
+                                  <h3>{{ block_data.settings.megamenu_title }}</h3>
+                                  <p>{{ block_data.settings.megamenu_subtitle }}</p>
+                                  <a
+                                    class="button button--primary"
+                                    href="{{ block_data.settings.megamenu_button-url }}"
+                                  >
+                                    {{- block_data.settings['megamenu_button-text'] -}}
+                                  </a>
+                                </div>
+                                <div class="megamenu__image">
+                                  {%- liquid
+                                    assign height = block_data.settings.imageselect.width | divided_by: block_data.settings.imageselect.aspect_ratio | round
+                                    assign sizes = '100vw'
+                                    assign widths = '375, 550, 750, 1100, 1500, 1780, 2000, 3000, 3840'
+                                  %}
+                                  {{
+                                    block_data.settings.imageselect
+                                    | image_url: width: 3840
+                                    | image_tag:
+                                      height: height,
+                                      sizes: sizes,
+                                      widths: widths,
+                                      fetchpriority: fetch_priority
+                                  }}
+                                </div>
+                              </div>
+                            {% endif %}
+                          {% endfor %}
                         </div>
                       </div>
                     </details>

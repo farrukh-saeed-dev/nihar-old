@@ -105,6 +105,27 @@
     "name": "t:settings_schema.typography.name",
     "settings": [
       {
+        "type": "checkbox",
+        "id": "custom_or_uploaded_font",
+        "label": "Use custom fonts ?",
+        "default": false
+      },
+      {
+        "type": "header",
+        "content": "Custom fonts",
+        "info": "Upload woff2 extension font-file with the same file name as font name's below. Leave empty if you want to select font from selector."
+      },
+      {
+        "type": "text",
+        "id": "typography_custom",
+        "label": "Custom font name"
+      },
+      {
+        "type": "text",
+        "id": "typography_custom_heading",
+        "label": "Custom heading font name"
+      },
+      {
         "type": "header",
         "content": "t:settings_schema.typography.settings.header__1.content"
       },
