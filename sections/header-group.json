@@ -9,25 +9,50 @@
           "type": "announcement",
           "settings": {
             "text": "Welcome to our store",
-            "text_alignment": "center",
-            "color_scheme": "scheme-1",
             "link": ""
           }
         }
       },
       "block_order": [
         "announcement-bar-0"
-      ]
+      ],
+      "settings": {
+        "color_scheme": "",
+        "show_line_separator": true,
+        "show_social": false,
+        "auto_rotate": false,
+        "change_slides_speed": 5,
+        "enable_country_selector": false,
+        "enable_language_selector": false
+      }
     },
     "header": {
       "type": "header",
+      "blocks": {
+        "18ff2824-137c-4c84-bcc4-0a8fd1bdb753": {
+          "type": "megamenu",
+          "settings": {
+            "imageselect": "shopify:\/\/shop_images\/Women-s-Briefs-Breathable-Transparent-Lingerie-Panties-Sexy-Lace-Woman-Plus-Size-Underwear-Women-Cotton-crotchless.jpg",
+            "megamenu_selector": "Catalog",
+            "megamenu_title": "Shop our favs",
+            "megamenu_subtitle": "This is a short text about the collection or the product",
+            "megamenu_button-text": "Shop Now",
+            "megamenu_button-url": "#",
+            "megamenu_background-color": "#1773b0"
+          }
+        }
+      },
+      "block_order": [
+        "18ff2824-137c-4c84-bcc4-0a8fd1bdb753"
+      ],
       "settings": {
-        "color_scheme": "scheme-1",
         "logo_position": "middle-left",
         "menu": "main-menu",
-        "menu_type_desktop": "dropdown",
+        "menu_type_desktop": "mega",
         "sticky_header_type": "on-scroll-up",
         "show_line_separator": true,
+        "color_scheme": "scheme-1",
+        "menu_color_scheme": "",
         "enable_country_selector": true,
         "enable_language_selector": true,
         "mobile_logo_position": "center",
