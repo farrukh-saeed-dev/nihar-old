@@ -54,6 +54,12 @@
           },
           {
             "type": "color",
+            "id": "text_heading",
+            "label": "Heading Text",
+            "default": "#121212"
+          },
+          {
+            "type": "color",
             "id": "text",
             "label": "t:settings_schema.colors.settings.text.label",
             "default": "#121212"
@@ -145,6 +151,56 @@
         "unit": "%",
         "label": "t:settings_schema.typography.settings.heading_scale.label",
         "default": 100
+      },
+      {
+        "type": "range",
+        "id": "h1_size",
+        "label": "H1 font size",
+        "min": 1,
+        "max": 5,
+        "step": 0.2,
+        "unit": "rem",
+        "default": 3
+      },
+      {
+        "type": "range",
+        "id": "h2_size",
+        "label": "H2 font size",
+        "min": 1,
+        "max": 5,
+        "step": 0.2,
+        "unit": "rem",
+        "default": 2
+      },
+      {
+        "type": "range",
+        "id": "h3_size",
+        "label": "H3 font size",
+        "min": 1,
+        "max": 5,
+        "step": 0.2,
+        "unit": "rem",
+        "default": 1.5
+      },
+      {
+        "type": "range",
+        "id": "h4_size",
+        "label": "H4 font size",
+        "min": 1,
+        "max": 5,
+        "step": 0.2,
+        "unit": "rem",
+        "default": 1
+      },
+      {
+        "type": "range",
+        "id": "h5_size",
+        "label": "H5 font size",
+        "min": 1,
+        "max": 4,
+        "step": 0.2,
+        "unit": "rem",
+        "default": 1
       },
       {
         "type": "header",

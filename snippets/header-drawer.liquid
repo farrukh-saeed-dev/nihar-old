@@ -108,7 +108,7 @@
                             {% if block_data.type == 'megamenu'
                               and link.title == block_data.settings.megamenu_selector
                             %}
-                              <div class="megamenu__data">
+                              <div class="megamenu__data mega_{{ block_data.id }}">
                                 <div class="megamenu__datatext">
                                   <h3>{{ block_data.settings.megamenu_title }}</h3>
                                   <p>{{ block_data.settings.megamenu_subtitle }}</p>

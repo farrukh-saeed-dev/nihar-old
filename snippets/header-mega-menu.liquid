@@ -70,7 +70,13 @@
                   </ul>
                   {% for block_data in section.blocks %}
                     {% if block_data.type == 'megamenu' and link.title == block_data.settings.megamenu_selector %}
-                      <div class="megamenu__data">
+                      {% style %}
+                        .mega_{{ block_data.id }}:before {
+                          background-color: rgb(var(--color-background));
+                          background: var(--gradient-background);
+                        }
+                      {% endstyle %}
+                      <div class="megamenu__data mega_{{ block_data.id }} color-{{ block_data.settings.color_scheme }}">
                         <div class="megamenu__datatext">
                           <h3>{{ block_data.settings.megamenu_title }}</h3>
                           <p>{{ block_data.settings.megamenu_subtitle }}</p>

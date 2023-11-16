@@ -4,28 +4,40 @@
   ----------------------------------------------------------------------------
 {%- endcomment -%}
 
-{% assign font_normal = settings.typography_custom | append: '.woff2' %}
-{% assign font_heading = settings.typography_custom_heading | append: '.woff2' %}
-
+{% assign font_normal = settings.typography_custom | append: '.woff2' | file_url %}
+{% assign font_heading = settings.typography_custom_heading | append: '.woff2' | file_url %}
 {% comment %}
   {{ font_normal | font_url | preload_tag: as: 'font', type: 'font/woff2', crossorigin: 'anonymous' }}
   {{ font_heading | font_url | preload_tag: as: 'font', type: 'font/woff2', crossorigin: 'anonymous' }}
 {% endcomment %}
-<link rel="preload" preload as="font" href="{{ font_normal | asset_url }}" type="font/woff2" crossorigin="anonymous">
-<link rel="preload" preload as="font" href="{{ font_heading | asset_url }}" type="font/woff2" crossorigin="anonymous">
+
+<link
+  rel="preload"
+  as="font"
+  href="{{ font_normal }}"
+  type="font/woff2"
+  crossorigin="anonymous"
+>
+<link
+  rel="preload"
+  as="font"
+  href="{{ font_heading }}"
+  type="font/woff2"
+  crossorigin="anonymous"
+>
 
 {% style %}
   @font-face {
-    font-family: '{{ settings.typography_custom }}';
-    src: url(' {{ font_normal | asset_url }} ') format('woff2'), url(' {{ font_normal | asset_url }} ') format('woff');
+    font-family: {{ settings.typography_custom }};
+    src: url({{ font_normal }}) format('woff2'), url({{ font_normal }}) format('woff');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
   }
 
   @font-face {
-    font-family: '{{ settings.typography_custom_heading }}';
-    src: url(' {{ font_heading }} ') format('woff2'), url(' {{ font_heading }} ') format('woff');
+    font-family: {{ settings.typography_custom_heading }};
+    src: url({{ font_heading }}) format('woff2'), url({{ font_heading }}) format('woff');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
