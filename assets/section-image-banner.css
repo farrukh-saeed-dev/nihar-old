@@ -49,6 +49,10 @@
   height: 100vh;
 }
 
+.banner--fullscreen { 
+  height: calc(100vh - var(--header-height) - 40px); 
+}
+
 @media screen and (max-width: 749px) {
   .banner--small.banner--mobile-bottom:not(.banner--adapt) .banner__media,
   .banner--small.banner--stacked:not(.banner--mobile-bottom):not(.banner--adapt) > .banner__media {

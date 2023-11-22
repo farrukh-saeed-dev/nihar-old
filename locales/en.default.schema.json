@@ -2969,14 +2969,17 @@
             "label": "Adapt to first image"
           },
           "options__2": {
-            "label": "Small"
+            "label": "Full screen"
           },
           "options__3": {
-            "label": "Medium"
-          },
-          "options__4": {
-            "label": "Large"
+            "label": "Custom height"
           }
+        },
+        "slide_height_desktop": {
+          "label": "Slider height desktop"
+        },
+        "slide_height_mobile": {
+          "label": "Slider height mobile"
         },
         "slider_visual": {
           "label": "Pagination style",
