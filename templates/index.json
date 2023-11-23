@@ -1,5 +1,61 @@
 {
   "sections": {
+    "9eb9713c-b4a8-4b73-8112-8061c30c886b": {
+      "type": "slideshow",
+      "blocks": {
+        "template--21531602714912__9eb9713c-b4a8-4b73-8112-8061c30c886b-slide-1": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/product-image-1115891891.jpg",
+            "heading": "Image slide",
+            "heading_size": "h1",
+            "subheading": "Tell your brand's story through images",
+            "button_label": "Button label",
+            "link": "",
+            "button_style_secondary": false,
+            "box_align": "middle-center",
+            "show_text_box": true,
+            "text_alignment": "center",
+            "image_overlay_opacity": 0,
+            "color_scheme": "",
+            "text_alignment_mobile": "center"
+          }
+        },
+        "template--21531602714912__9eb9713c-b4a8-4b73-8112-8061c30c886b-slide-2": {
+          "type": "slide",
+          "settings": {
+            "heading": "Image slide",
+            "heading_size": "h1",
+            "subheading": "Tell your brand's story through images",
+            "button_label": "Button label",
+            "link": "",
+            "button_style_secondary": false,
+            "box_align": "middle-center",
+            "show_text_box": true,
+            "text_alignment": "center",
+            "image_overlay_opacity": 0,
+            "color_scheme": "",
+            "text_alignment_mobile": "center"
+          }
+        }
+      },
+      "block_order": [
+        "template--21531602714912__9eb9713c-b4a8-4b73-8112-8061c30c886b-slide-1",
+        "template--21531602714912__9eb9713c-b4a8-4b73-8112-8061c30c886b-slide-2"
+      ],
+      "settings": {
+        "layout": "full_bleed",
+        "slide_height": "height_custom",
+        "slide_height_custom": 420,
+        "slide_height_custom_mobile": 250,
+        "slider_visual": "counter",
+        "auto_rotate": false,
+        "change_slides_speed": 5,
+        "image_behavior": "none",
+        "show_text_below": true,
+        "accessibility_info": "Slideshow about our brand"
+      }
+    },
     "image_banner": {
       "type": "image-banner",
       "blocks": {
@@ -45,6 +101,34 @@
         "mobile_content_alignment": "center",
         "stack_images_on_mobile": false,
         "show_text_below": false
+      }
+    },
+    "716175b5-b3f8-41a2-a769-782a77fb5f5b": {
+      "type": "featured-collection",
+      "settings": {
+        "title": "Featured collection",
+        "heading_size": "h2",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "collection": "all",
+        "products_to_show": 14,
+        "columns_desktop": 4.5,
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "solid",
+        "enable_desktop_slider": true,
+        "color_scheme": "scheme-2",
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": false,
+        "show_vendor": false,
+        "show_rating": false,
+        "enable_quick_add": false,
+        "columns_mobile": 2.5,
+        "swipe_on_mobile": true,
+        "padding_top": 36,
+        "padding_bottom": 36
       }
     },
     "rich_text": {
@@ -182,42 +266,15 @@
         "padding_top": 36,
         "padding_bottom": 36
       }
-    },
-    "716175b5-b3f8-41a2-a769-782a77fb5f5b": {
-      "type": "featured-collection",
-      "settings": {
-        "title": "Featured collection",
-        "heading_size": "h2",
-        "description": "",
-        "show_description": false,
-        "description_style": "body",
-        "collection": "all",
-        "products_to_show": 14,
-        "columns_desktop": 4.5,
-        "full_width": false,
-        "show_view_all": true,
-        "view_all_style": "solid",
-        "enable_desktop_slider": true,
-        "color_scheme": "scheme-2",
-        "image_ratio": "adapt",
-        "image_shape": "default",
-        "show_secondary_image": false,
-        "show_vendor": false,
-        "show_rating": false,
-        "enable_quick_add": false,
-        "columns_mobile": 2.5,
-        "swipe_on_mobile": true,
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
     }
   },
   "order": [
+    "9eb9713c-b4a8-4b73-8112-8061c30c886b",
     "image_banner",
+    "716175b5-b3f8-41a2-a769-782a77fb5f5b",
     "rich_text",
     "collage",
     "video",
-    "multicolumn",
-    "716175b5-b3f8-41a2-a769-782a77fb5f5b"
+    "multicolumn"
   ]
 }
