@@ -690,15 +690,15 @@
       "limit": 5,
       "settings": [
         {
-          "type": "image_picker",
-          "id": "imageselect",
-          "label": "Select mega menu image"
-        },
-        {
           "type": "text",
           "id": "megamenu_selector",
           "label": "Mega menu selector",
           "info": "Please enter the exact main-menu item name that appears in the navigation. No child items."
+        },
+        {
+          "type": "image_picker",
+          "id": "imageselect",
+          "label": "Select mega menu image"
         },
         {
           "type": "text",
@@ -725,6 +725,105 @@
           "id": "color_scheme",
           "label": "t:sections.all.colors.label",
           "default": "scheme-1"
+        }
+      ]
+    },
+    {
+      "type": "collection_image",
+      "name": "Collection Images",
+      "limit": 21,
+      "settings": [
+        {
+          "type": "text",
+          "id": "mainmenu_selector",
+          "label": "Mega menu selector",
+          "info": "Please enter the exact main-menu item name that appears in the navigation. No child items."
+        },
+        {
+          "type": "select",
+          "id": "text_align",
+          "label": "Align link text",
+          "options": [
+            {
+              "value": "left",
+              "label": "left"
+            },
+            {
+              "value": "center",
+              "label": "center"
+            },
+            {
+              "value": "right",
+              "label": "right"
+            }
+          ],
+          "default": "center"
+        },
+        {
+          "type": "range",
+          "id": "img_columns",
+          "min": 3,
+          "max": 6,
+          "step": 1,
+          "label": "Images per column",
+          "default": 4
+        },
+        {
+          "type": "select",
+          "id": "image_show_missing",
+          "options": [
+            {
+              "value": "yes",
+              "label": "Yes"
+            },
+            {
+              "value": "no",
+              "label": "No"
+            }
+          ],
+          "label": "Show links with missing images ?",
+          "default": "yes"
+        },
+        {
+          "type": "select",
+          "id": "image_shape",
+          "options": [
+            {
+              "value": "default",
+              "label": "t:sections.all.image_shape.options__1.label"
+            },
+            {
+              "value": "arch",
+              "label": "t:sections.all.image_shape.options__2.label"
+            },
+            {
+              "value": "blob",
+              "label": "t:sections.all.image_shape.options__3.label"
+            },
+            {
+              "value": "chevronleft",
+              "label": "t:sections.all.image_shape.options__4.label"
+            },
+            {
+              "value": "chevronright",
+              "label": "t:sections.all.image_shape.options__5.label"
+            },
+            {
+              "value": "diamond",
+              "label": "t:sections.all.image_shape.options__6.label"
+            },
+            {
+              "value": "parallelogram",
+              "label": "t:sections.all.image_shape.options__7.label"
+            },
+            {
+              "value": "round",
+              "label": "t:sections.all.image_shape.options__8.label"
+            }
+          ],
+          "default": "default",
+          "label": "t:sections.all.image_shape.label",
+          "info": "t:sections.all.image_shape.info"
         }
       ]
     }

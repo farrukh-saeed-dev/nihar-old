@@ -27,32 +27,81 @@
                   {% render 'icon-caret' %}
                 </a>
               </top-level-menu-text>
-              {% assign custom_data = false %}
-              {% for block_data in section.blocks %}
-                {% if block_data.type == 'megamenu' and link.title == block_data.settings.megamenu_selector %}
-                  {% assign custom_data = true %}
-                {% endif %}
-              {% endfor %}
+              {% liquid
+                assign custom_data = false
+                assign collection_images = false
+                assign image_shape = 'default'
+              %}
+              {% liquid
+                for block_data in section.blocks
+                  if block_data.type == 'megamenu' and link.title == block_data.settings.megamenu_selector
+                    assign custom_data = true
+                  endif
+                  if block_data.type == 'collection_image' and link.title == block_data.settings.mainmenu_selector
+                    assign collection_images = true
+                    assign img_columns = block_data.settings.img_columns
+                    assign image_shape = block_data.settings.image_shape
+                  endif
+                endfor
+              %}
+              {% if image_shape == 'blob' %}
+                {{ 'mask-blobs.css' | asset_url | stylesheet_tag }}
+              {%- endif -%}
+              {% if image_shape == 'arch' %}
+                {% render 'mask-arch' %}
+              {%- endif -%}
               <div
                 id="MegaMenu-Content-{{ forloop.index }}"
-                class="mega-menu__content{% if custom_data == true %} custom_content{% endif %} color-{{ section.settings.menu_color_scheme }} gradient motion-reduce global-settings-popup"
+                class="mega-menu__content{% if custom_data %} custom_content{% endif %}{% if collection_images %} collection_image columns_{{ img_columns }}{% endif %} color-{{ section.settings.menu_color_scheme }} gradient motion-reduce global-settings-popup"
                 tabindex="-1"
               >
                 <div class="megamenu-content page-width">
                   <ul
-                    class="mega-menu__list {% if link.levels == 1 %} mega-menu__list--condensed{% endif %}"
+                    class="mega-menu__list {% unless collection_images %}{% if link.levels == 1 %} mega-menu__list--condensed{% endif %}{% endunless %}{% if image_shape and image_shape != 'default' %}card--shape{% endif %}"
                     role="list"
                   >
                     {%- for childlink in link.links -%}
                       <li>
+                        {% comment %}
+                          these lines of code will get the matching collections with images, unmatched link will be hidden.
+                        {% endcomment %}
+                        {% liquid
+                          assign targetCollectionHandle = false
+                          for block_data in section.blocks
+                            if block_data.type == 'collection_image' and link.title == block_data.settings.mainmenu_selector
+                              assign targetCollectionHandle = 'Collections'
+                            endif
+                          endfor
+                          assign collectionImage = false
+                          for collection in collections
+                            if collection.handle == childlink.handle
+                              assign collectionImage = collection.image
+                              break
+                            endif
+                          endfor
+                          assign text_align = block_data.settings.text_align
+                        %}
                         <a
                           id="HeaderMenu-{{ link.handle }}-{{ childlink.handle }}"
                           href="{{ childlink.url }}"
-                          class="mega-menu__link mega-menu__link--level-2 link{% if childlink.current %} mega-menu__link--active{% endif %}"
+                          class="mega-menu__link {{ text_align }} mega-menu__link--level-2 link{% if childlink.current %} mega-menu__link--active{% endif %}"
                           {% if childlink.current %}
                             aria-current="page"
                           {% endif %}
                         >
+                          {% if targetCollectionHandle and collectionImage %}
+                            <div class="mega-menu__image-shape{% if image_shape and image_shape != 'default' %} shape--{{ image_shape }}{% endif %}">
+                              <img
+                                loading="eager"
+                                width="200"
+                                height="200"
+                                src="{{ collectionImage.src | image_url }}"
+                                alt="{{ collectionImage.alt }}"
+                              >
+                            </div>
+                          {% elsif targetCollectionHandle %}
+                            {{ 'collection-1' | placeholder_svg_tag }}
+                          {% endif %}
                           {{ childlink.title | escape }}
                         </a>
                         {%- if childlink.links != blank -%}
