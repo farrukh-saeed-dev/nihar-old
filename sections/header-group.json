@@ -32,8 +32,8 @@
         "18ff2824-137c-4c84-bcc4-0a8fd1bdb753": {
           "type": "megamenu",
           "settings": {
-            "imageselect": "shopify:\/\/shop_images\/product-image-1145359921.jpg",
             "megamenu_selector": "Shop",
+            "imageselect": "shopify:\/\/shop_images\/product-image-1145359921.jpg",
             "megamenu_title": "Shop our favs",
             "megamenu_subtitle": "This is a short text about the collection or the product",
             "megamenu_button-text": "Shop Now",
@@ -47,7 +47,7 @@
       ],
       "settings": {
         "logo_position": "middle-left",
-        "menu": "main-menu",
+        "menu": "mega-menu-test",
         "menu_type_desktop": "mega",
         "sticky_header_type": "on-scroll-up",
         "show_line_separator": true,
