@@ -40,10 +40,21 @@
             "megamenu_button-url": "#",
             "color_scheme": ""
           }
+        },
+        "96fe275f-6ca0-4ddf-a85b-e35bc8fa4ca1": {
+          "type": "collection_image",
+          "settings": {
+            "mainmenu_selector": "Collections",
+            "text_align": "center",
+            "img_columns": 6,
+            "image_show_missing": "yes",
+            "image_shape": "default"
+          }
         }
       },
       "block_order": [
-        "18ff2824-137c-4c84-bcc4-0a8fd1bdb753"
+        "18ff2824-137c-4c84-bcc4-0a8fd1bdb753",
+        "96fe275f-6ca0-4ddf-a85b-e35bc8fa4ca1"
       ],
       "settings": {
         "logo_position": "middle-left",
