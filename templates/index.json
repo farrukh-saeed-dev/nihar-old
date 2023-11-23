@@ -191,7 +191,7 @@
         "description": "",
         "show_description": false,
         "description_style": "body",
-        "collection": "frontpage",
+        "collection": "all",
         "products_to_show": 14,
         "columns_desktop": 4.5,
         "full_width": false,
