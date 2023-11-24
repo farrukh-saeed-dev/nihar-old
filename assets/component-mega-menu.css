@@ -139,6 +139,12 @@ top-level-menu:focus-within > .mega-menu__content { display: block; opacity: 1; 
 .collection_image.columns_6 ul {
   grid-template-columns: repeat(6,minmax(0,1fr));
 }
+.collection_image.columns_7 ul {
+  grid-template-columns: repeat(7,minmax(0,1fr));
+}
+.collection_image.columns_8 ul {
+  grid-template-columns: repeat(8,minmax(0,1fr));
+}
 .mega-menu__image-shape {
   margin-bottom: .5rem;
 }

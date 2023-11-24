@@ -41,9 +41,17 @@
                     assign collection_images = true
                     assign img_columns = block_data.settings.img_columns
                     assign image_shape = block_data.settings.image_shape
+                    assign image_bw_space = block_data.settings.image_bw_space | append: 'px'
                   endif
                 endfor
               %}
+              {% if block_data.type == 'collection_image' and link.title == block_data.settings.mainmenu_selector %}
+                {% style %}
+                  .collection_image ul {
+                    gap: 1rem {{ image_bw_space }} !important;
+                  }
+                {% endstyle %}
+              {% endif %}
               {% if image_shape == 'blob' %}
                 {{ 'mask-blobs.css' | asset_url | stylesheet_tag }}
               {%- endif -%}
@@ -67,19 +75,20 @@
                         {% endcomment %}
                         {% liquid
                           assign targetCollectionHandle = false
+                          assign text_align = 'center'
                           for block_data in section.blocks
                             if block_data.type == 'collection_image' and link.title == block_data.settings.mainmenu_selector
                               assign targetCollectionHandle = 'Collections'
                             endif
                           endfor
                           assign collectionImage = false
+                          assign text_align = block_data.settings.text_align
                           for collection in collections
                             if collection.handle == childlink.handle
                               assign collectionImage = collection.image
                               break
                             endif
                           endfor
-                          assign text_align = block_data.settings.text_align
                         %}
                         <a
                           id="HeaderMenu-{{ link.handle }}-{{ childlink.handle }}"
