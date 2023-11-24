@@ -57,7 +57,7 @@
         "96fe275f-6ca0-4ddf-a85b-e35bc8fa4ca1"
       ],
       "settings": {
-        "logo_position": "middle-left",
+        "logo_position": "top-left",
         "menu": "main-menu",
         "menu_type_desktop": "mega",
         "sticky_header_type": "on-scroll-up",
