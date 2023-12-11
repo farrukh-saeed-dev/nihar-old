@@ -6,7 +6,7 @@
         "template--21531602714912__9eb9713c-b4a8-4b73-8112-8061c30c886b-slide-1": {
           "type": "slide",
           "settings": {
-            "image": "shopify:\/\/shop_images\/product-image-1115891891.jpg",
+            "image": "shopify:\/\/shop_images\/pexels-rodion-kutsaiev-9436715.jpg",
             "image_position": "right",
             "heading": "Image slide",
             "heading_size": 3.5,
@@ -50,7 +50,7 @@
       ],
       "settings": {
         "layout": "grid",
-        "style": "two_cols",
+        "style": "contemporary",
         "slide_height": "height_custom",
         "slide_height_custom": 480,
         "slide_height_custom_mobile": 270,
