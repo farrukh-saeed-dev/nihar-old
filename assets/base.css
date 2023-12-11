@@ -3,6 +3,8 @@
   --alpha-button-border: 1;
   --alpha-link: 0.85;
   --alpha-badge-border: 0.1;
+  --font-body-scale: 1;
+  --font-heading-scale: 1.5;
 }
 
 .product-card-wrapper .card,
@@ -72,6 +74,7 @@
 }
 
 /* base */
+:root { font-size: 10px; }
 
 .no-js:not(html) {
   display: none !important;
@@ -295,12 +298,15 @@ h5,
 }
 
 .h0 {
-  font-size: calc(var(--font-heading-scale) * 4rem);
+  /* font-size: calc(var(--font-heading-scale) * 4rem); */
+  font-size: calc(var(--font-heading1) * .80);
+
 }
 
 @media only screen and (min-width: 750px) {
   .h0 {
-    font-size: calc(var(--font-heading-scale) * 5.2rem);
+    /* font-size: calc(var(--font-heading-scale) * 5.2rem); */
+    font-size: var(--font-heading1);
   }
 }
 
@@ -312,31 +318,36 @@ h1,
 @media only screen and (min-width: 750px) {
   h1,
   .h1 {
-    font-size: calc(var(--font-heading-scale) * 4rem);
+    /* font-size: calc(var(--font-heading-scale) * 4rem); */
+    font-size: var(--font-heading1);
   }
 }
 
 h2,
 .h2 {
-  font-size: calc(var(--font-heading-scale) * 2rem);
+  /* font-size: calc(var(--font-heading-scale) * 2rem); */
+  font-size: calc(var(--font-heading2) * .80);
 }
 
 @media only screen and (min-width: 750px) {
   h2,
   .h2 {
-    font-size: calc(var(--font-heading-scale) * 2.4rem);
+    /* font-size: calc(var(--font-heading-scale) * 2.4rem); */
+    font-size: var(--font-heading2);
   }
 }
 
 h3,
 .h3 {
-  font-size: calc(var(--font-heading-scale) * 1.7rem);
+  /* font-size: calc(var(--font-heading-scale) * 1.7rem); */
+  font-size: calc(var(--font-heading3) * .80);
 }
 
 @media only screen and (min-width: 750px) {
   h3,
   .h3 {
-    font-size: calc(var(--font-heading-scale) * 1.8rem);
+    /* font-size: calc(var(--font-heading-scale) * 1.8rem); */
+    font-size: var(--font-heading3);
   }
 }
 
@@ -345,17 +356,22 @@ h4,
   font-family: var(--font-heading-family);
   font-style: var(--font-heading-style);
   font-size: calc(var(--font-heading-scale) * 1.5rem);
+  font-size: calc(var(--font-heading4) * .80);
+
 }
 
 h5,
 .h5 {
-  font-size: calc(var(--font-heading-scale) * 1.2rem);
+  /* font-size: calc(var(--font-heading-scale) * 1.2rem); */
+  font-size: calc(var(--font-heading5) * .80);
+
 }
 
 @media only screen and (min-width: 750px) {
   h5,
   .h5 {
-    font-size: calc(var(--font-heading-scale) * 1.3rem);
+    /* font-size: calc(var(--font-heading-scale) * 1.3rem); */
+    font-size: var(--font-heading5);
   }
 }
 
@@ -477,6 +493,7 @@ table:not([class]) th {
 }
 
 a:empty,
+li:empty,
 ul:empty,
 dl:empty,
 div:empty,

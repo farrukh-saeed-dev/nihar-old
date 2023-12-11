@@ -8,8 +8,9 @@
           "settings": {
             "image": "shopify:\/\/shop_images\/product-image-1115891891.jpg",
             "heading": "Image slide",
-            "heading_size": "3.5",
+            "heading_size": 3.5,
             "subheading": "Tell your brand's story through images",
+            "subheading_size": 2.4,
             "button_label": "Button label",
             "link": "",
             "button_style_secondary": false,
@@ -26,8 +27,9 @@
           "settings": {
             "image": "shopify:\/\/shop_images\/product-image-1145359921.jpg",
             "heading": "Image slide",
-            "heading_size": "2.5",
+            "heading_size": 2.5,
             "subheading": "Tell your brand's story through images",
+            "subheading_size": 2.4,
             "button_label": "Button label",
             "link": "",
             "button_style_secondary": false,

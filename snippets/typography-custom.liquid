@@ -11,35 +11,41 @@
   {{ font_heading | font_url | preload_tag: as: 'font', type: 'font/woff2', crossorigin: 'anonymous' }}
 {% endcomment %}
 
-<link
-  rel="preload"
-  as="font"
-  href="{{ font_normal }}"
-  type="font/woff2"
-  crossorigin="anonymous"
->
-<link
-  rel="preload"
-  as="font"
-  href="{{ font_heading }}"
-  type="font/woff2"
-  crossorigin="anonymous"
->
-
+{% if font_normal %}
+  <link
+    rel="preload"
+    as="font"
+    href="{{ font_normal }}"
+    type="font/woff2"
+    crossorigin="anonymous"
+  >
+{% endif %}
+{% if font_heading %}
+  <link
+    rel="preload"
+    as="font"
+    href="{{ font_heading }}"
+    type="font/woff2"
+    crossorigin="anonymous"
+  >
+{% endif %}
 {% style %}
-  @font-face {
-    font-family: {{ settings.typography_custom }};
-    src: url({{ font_normal }}) format('woff2'), url({{ font_normal }}) format('woff');
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
-  }
-
-  @font-face {
-    font-family: {{ settings.typography_custom_heading }};
-    src: url({{ font_heading }}) format('woff2'), url({{ font_heading }}) format('woff');
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
-  }
+  {% if font_normal %}
+    @font-face {
+      font-family: {{ settings.typography_custom }};
+      src: url({{ font_normal }}) format('woff2'), url({{ font_normal }}) format('woff');
+      font-weight: normal;
+      font-style: normal;
+      font-display: swap;
+    }
+  {% endif %}
+  {% if font_heading %}
+    @font-face {
+      font-family: {{ settings.typography_custom_heading }};
+      src: url({{ font_heading }}) format('woff2'), url({{ font_heading }}) format('woff');
+      font-weight: normal;
+      font-style: normal;
+      font-display: swap;
+    }
+  {% endif %}
 {% endstyle %}

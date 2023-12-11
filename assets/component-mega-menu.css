@@ -124,10 +124,10 @@ top-level-menu:focus-within > .mega-menu__content { display: block; opacity: 1; 
 .collection_image ul a {
   text-align: center;
 }
-.collection_image ul a.left {
+.collection_image.text_left a {
   text-align: left;
 }
-.collection_image ul a.right {
+.collection_image.text_right a {
   text-align: right;
 }
 .collection_image.columns_3 ul {

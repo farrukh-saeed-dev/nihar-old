@@ -107,8 +107,11 @@
         --font-heading-style: {{ settings.type_header_font.style }};
         --font-heading-weight: {{ settings.type_header_font.weight }};
 
-        --font-body-scale: {{ settings.body_scale | divided_by: 100.0 }};
-        --font-heading-scale: {{ settings.heading_scale | times: 1.0 | divided_by: settings.body_scale }};
+        --font-heading1: {{ settings.h1_size | append: 'rem' }};
+        --font-heading2: {{ settings.h2_size | append: 'rem' }};
+        --font-heading3: {{ settings.h3_size | append: 'rem' }};
+        --font-heading4: {{ settings.h4_size | append: 'rem' }};
+        --font-heading5: {{ settings.h5_size | append: 'rem' }};
 
         --media-padding: {{ settings.media_padding }}px;
         --media-border-opacity: {{ settings.media_border_opacity | divided_by: 100.0 }};
