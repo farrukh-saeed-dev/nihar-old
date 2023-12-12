@@ -4,7 +4,7 @@
 
 {%- if section.settings.slide_height == 'adapt_image' and section.blocks.first.settings.image != blank -%}
   {%- style -%}
-    @media screen and (max-width: 749px) {
+    @media screen and (max-width: 989px) {
       #Slider-{{ section.id }}::before,
       #Slider-{{ section.id }} .media::before,
       #Slider-{{ section.id }}:not(.banner--mobile-bottom) .banner__content::before {
@@ -14,7 +14,7 @@
       }
     }
 
-    @media screen and (min-width: 750px) {
+    @media screen and (min-width: 990px) {
       #Slider-{{ section.id }}::before,
       #Slider-{{ section.id }} .media::before {
         padding-bottom: {{ 1 | divided_by: section.blocks.first.settings.image.aspect_ratio | times: 100 }}%;
@@ -32,7 +32,7 @@
     .banner--height_custom:not(.banner--adapt) {
       height: {{ slider_height_mobile | append: 'px' }};
     }
-    @media(min-width: 749px) {
+    @media(min-width: 989px) {
       .banner--height_custom:not(.banner--adapt) {
         height: {{ slider_height | append: 'px' }};
       }
@@ -59,14 +59,31 @@
           opacity: {{ block.settings.image_overlay_opacity | divided_by: 100.0 }};
         }
         #Slide-{{ section.id }}-{{ forloop.index }} .banner__heading {
-          font-size: {{ block.settings.heading_size | append: "rem" }};
+          font-size: {{ block.settings.heading_size_mobile | append: "rem" }};
         }
         #Slide-{{ section.id }}-{{ forloop.index }} .banner__text p {
-          font-size: {{ block.settings.subheading_size | append: "rem" }};
+          font-size: {{ block.settings.subheading_size_mobile | append: "rem" }};
+        }
+        #Slide-{{ section.id }}-{{ forloop.index }} .banner__buttons a.button {
+          font-size: {{ block.settings.subheading_size_mobile | append: "rem" }};
+          padding: 0 1rem;
+        }
+        @media screen and (min-width: 990px) {
+          #Slide-{{ section.id }}-{{ forloop.index }} .banner__heading {
+            font-size: {{ block.settings.heading_size | append: "rem" }};
+          }
+          #Slide-{{ section.id }}-{{ forloop.index }} .banner__text p {
+            font-size: {{ block.settings.subheading_size | append: "rem" }};
+          }
+          #Slide-{{ section.id }}-{{ forloop.index }} .banner__buttons a.button {
+            font-size: {{ block.settings.subheading_size | append: "rem" }};
+            padding: 0 3rem;
+          }
+
         }
       {% endstyle %}
       <div
-        class="slideshow__slide grid__item grid--1-col slider__slide color-{{ block.settings.color_scheme }}"
+        class="slideshow__slide layout_{{ layout }} grid__item grid--1-col slider__slide"
         id="Slide-{{ section.id }}-{{ forloop.index }}"
         {{ block.shopify_attributes }}
         role="group"
@@ -115,7 +132,7 @@
             {%- endif -%}
           {%- endif -%}
         </div>
-        <div class="slideshow__text-wrapper banner__content banner__content--{{ block.settings.box_align }} page-width{% if block.settings.show_text_box == false %} banner--desktop-transparent{% endif %}{% if settings.animations_reveal_on_scroll and forloop.index == 1 %} scroll-trigger animate--slide-in{% endif %}">
+        <div class="slideshow__text-wrapper color-{{ block.settings.color_scheme }} banner__content banner__content--{{ block.settings.box_align }} page-width{% if block.settings.show_text_box == false %} banner--desktop-transparent{% endif %}{% if settings.animations_reveal_on_scroll and forloop.index == 1 %} scroll-trigger animate--slide-in{% endif %}">
           <div class="slideshow__text banner__box content-container content-container--full-width-mobile gradient slideshow__text--{{ block.settings.text_alignment }} slideshow__text-mobile--{{ block.settings.text_alignment_mobile }} color-{{ block.settings.color_scheme }}">
             {%- if block.settings.heading != blank -%}
               <h2 class="banner__heading inline-richtext">
@@ -369,6 +386,16 @@
           "default": 2.5
         },
         {
+          "type": "range",
+          "id": "heading_size_mobile",
+          "min": 1,
+          "max": 4,
+          "step": 0.2,
+          "unit": "rem",
+          "label": "t:sections.all.heading_size.label_mobile",
+          "default": 1.4
+        },
+        {
           "type": "inline_richtext",
           "id": "subheading",
           "default": "Tell your brand's story through images",
@@ -383,6 +410,16 @@
           "unit": "rem",
           "label": "t:sections.all.subheading_size.label",
           "default": 2.4
+        },
+        {
+          "type": "range",
+          "id": "subheading_size_mobile",
+          "min": 1,
+          "max": 3,
+          "step": 0.2,
+          "unit": "rem",
+          "label": "t:sections.all.subheading_size.label_mobile",
+          "default": 1.4
         },
         {
           "type": "text",

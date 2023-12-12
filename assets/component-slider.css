@@ -380,12 +380,20 @@ slider-component.slider-component-full-width {
   top: 30%;
   /*background: rgba(200,200,200,.3);*/
   border-radius: 50%;
-  width: 5rem;
-  height: 5rem;
+  width: 3rem;
+  height: 3rem;
   background: rgb(var(--color-button));
   color: rgb(var(--color-button-text));
   box-shadow: none;
   border: 1px solid rgb(var(--color-shadow));
+  opacity: .3;
+  padding-bottom: 5px;
+}
+.slider-button .icon { height: .6rem; }
+@media screen and (min-width: 749px) {
+  .slider-button { width: 5rem; height: 5rem; padding-bottom: 0; }
+  .slider-button .icon { height: 1rem; }
+
 }
 .slider-button.slider-button--next {
   right: 2rem;
@@ -394,14 +402,11 @@ slider-component.slider-component-full-width {
 .slider-button:hover {
   color: rgb(var(--color-button-text));
   box-shadow: 0 0 0 0.2rem rgb(var(--color-shadow));
+  opacity: 1;
 }
 
-/* .slider-button:not([disabled]):hover {
+.slider-button:not([disabled]):hover {
   color: rgb(var(--color-foreground));
-} */
-
-.slider-button .icon {
-  height: 1rem;
 }
 
 .slider-button[disabled] .icon {

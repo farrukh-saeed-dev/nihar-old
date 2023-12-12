@@ -402,6 +402,7 @@
       },
       "heading_size": {
         "label": "Heading size",
+        "label_mobile": "Mobile heading size",
         "options__1": {
           "label": "Small"
         },
@@ -417,6 +418,7 @@
       },
       "subheading_size": {
         "label": "Subheading size",
+        "label_mobile": "Mobile subheading size",
         "options__1": {
           "label": "Small"
         },
@@ -2975,7 +2977,7 @@
             "label": "Full width"
           },
           "options__2": {
-            "label": "Grid"
+            "label": "Fixed width"
           }
         },
         "slide_height": {
