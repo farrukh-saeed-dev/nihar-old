@@ -391,7 +391,7 @@ slider-component.slider-component-full-width {
 }
 .slider-button .icon { height: .6rem; }
 @media screen and (min-width: 749px) {
-  .slider-button { width: 5rem; height: 5rem; padding-bottom: 0; }
+  .slider-button { width: 4rem; height: 4rem; padding-bottom: 0; }
   .slider-button .icon { height: 1rem; }
 
 }

@@ -432,6 +432,22 @@
           "label": "Extra large"
         }
       },
+      "font_size": {
+        "label": "Font size",
+        "label_mobile": "Mobile font size",
+        "options__1": {
+          "label": "Small"
+        },
+        "options__2": {
+          "label": "Medium"
+        },
+        "options__3": {
+          "label": "Large"
+        },
+        "options__4": {
+          "label": "Extra large"
+        }
+      },
       "image_shape": {
         "options__1": {
           "label": "Default"

@@ -102,8 +102,8 @@ top-level-menu:focus-within > .mega-menu__content { display: block; opacity: 1; 
 .custom_content .mega-menu__list {   grid-template-columns: repeat(4, minmax(0, 1fr)); }
 .megamenu__data { display: flex; align-content: baseline; align-items: center; }
 .megamenu__data h3, .megamenu__data p { margin-top: 0; margin-bottom: 1rem; line-height: 1.2; }
-.custom_content .megamenu__data::before { z-index: 0; width: calc(50vw - 1px); position: absolute; content: ''; right: 0; bottom: 0; left: 50%; top: 0; }
-#menu-drawer .megamenu__data:before { z-index: 0; width: auto; position: absolute; content: ''; right: 0; bottom: 0; left: 0; top: 0; }
+/* .custom_content .megamenu__data::before { z-index: 0; width: calc(50vw - 9px); position: absolute; content: ''; right: auto; bottom: 0; left: 50%; top: 0; }
+#menu-drawer .megamenu__data:before { z-index: 0; width: auto; position: absolute; content: ''; right: 0; bottom: 0; left: 0; top: 0; } */
 .megamenu__datatext { position: relative; z-index: 1; padding: 1rem 2rem; }
 .megamenu__image { position: relative; z-index: 1; display: flex; justify-content: flex-end; }
 .megamenu__image img { width: 100%; height: auto; display: block; }

@@ -37,14 +37,14 @@
     }
   {%- endif -%}
 
-  {%- if section.settings.menu_type_desktop != "drawer" -%}
+  {% comment %} {%- if section.settings.menu_type_desktop != "drawer" -%}
     @media screen and (min-width: 990px) {
       header-drawer {
         display: none;
       }
     }
-  {%- endif -%}
-
+  {%- endif -%} {% endcomment %}
+  
   .menu-drawer-container {
     display: flex;
   }

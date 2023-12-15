@@ -41,6 +41,9 @@
 {% endif %}
 {% assign slideshow_style = section.settings.style %}
 {% assign slideshow_scheme = section.settings.slideshow_scheme %}
+{% if layout == 'grid' %}
+  <div class="page-width">
+{% endif %}
 <slideshow-component
   class="slider-mobile-gutter color-{{ slideshow_scheme }} {{ slideshow_style }}{% if section.settings.show_text_below %} mobile-text-below{% endif %}"
   role="region"
@@ -83,7 +86,7 @@
         }
       {% endstyle %}
       <div
-        class="slideshow__slide layout_{{ layout }} grid__item grid--1-col slider__slide"
+        class="slideshow__slide  grid__item grid--1-col slider__slide"
         id="Slide-{{ section.id }}-{{ forloop.index }}"
         {{ block.shopify_attributes }}
         role="group"
@@ -91,9 +94,6 @@
         aria-label="{{ forloop.index }} {{ 'general.slider.of' | t }} {{ forloop.length }}"
         tabindex="-1"
       >
-        {% if layout == 'grid' %}
-          <div class="page-width">
-        {% endif %}
         <div class="slideshow__media {% if slideshow_style == 'contemporary' %} banner__media media{% else %} img_{{ block.settings.image_position }}{% endif %}{% if block.settings.image == blank %} placeholder{% endif %}{% if section.settings.image_behavior != 'none' %} animate--{{ section.settings.image_behavior }}{% endif %}">
           {%- if block.settings.image -%}
             {%- liquid
@@ -160,9 +160,6 @@
             {%- endif -%}
           </div>
         </div>
-        {% if layout == 'grid' %}
-          </div>
-        {% endif %}
       </div>
     {%- endfor -%}
   </div>
@@ -205,7 +202,9 @@
     </noscript>
   {%- endif -%}
 </slideshow-component>
-
+{% if layout == 'grid' %}
+  </div>
+{% endif %}
 {%- if request.design_mode -%}
   <script src="{{ 'theme-editor.js' | asset_url }}" defer="defer"></script>
 {%- endif -%}
