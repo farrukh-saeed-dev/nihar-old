@@ -1,0 +1,22 @@
+.header--top-center header-drawer {
+  grid-area: left-icons;
+}
+.header--top-left header-drawer {
+  grid-area: heading;
+}
+.header--middle-center header-drawer {
+  grid-area: navigation;
+}
+.header.page-width {
+  max-width: var(--page-width);
+  padding: 0 5rem;
+}
+.header--middle-center.drawer-menu header-drawer {
+  grid-area: left-icons;
+}
+header-drawer { display: none !important}
+header-drawer.show_desktop { display: block !important; }
+.header--top-left .show_desktop ~ .header__heading-link, 
+.header--top-left .show_desktop ~ .header__heading, 
+.header--middle-center .show_desktop ~ .header__inline-menu,
+.header--top-center .show_desktop ~ .header__search { margin-left: 3rem; }

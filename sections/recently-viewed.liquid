@@ -1,0 +1,209 @@
+<script src="{{ 'recently-viewed-see.js' | asset_url }}" defer="defer"></script>
+{% comment %}
+   <link rel='stylesheet' href='{{ 'component-card.static.css' | asset_url }}' media='print' onload="this.media='all'">
+   <noscript>{{ 'component-card.static.css' | asset_url | stylesheet_tag }}</noscript>
+  {{ 'component-price.static.css' | asset_url | stylesheet_tag }}
+{% endcomment %}
+
+{% comment %} <link rel="stylesheet" href="{{ 'component-slider.static.css' | asset_url }}" media="print" onload="this.media='all'"> {% endcomment %}
+{% comment %} <link rel="stylesheet" href="{{ 'template-collection.static.css' | asset_url }}" media="print" onload="this.media='all'"> {% endcomment %}
+{% comment %} <noscript>{{ 'template-collection.static.css' | asset_url | stylesheet_tag }}</noscript> {% endcomment %}
+
+{%- liquid
+  if section.settings.custom_settings
+    assign products_to_display = section.settings.carousel_products_count
+    assign minimum_products_to_display = section.settings.carousel_minimum_products
+
+    if section.settings.collection.all_products_count > section.settings.carousel_products_count
+      assign columns_mobile_int = section.settings.carousel_mobile_count | plus: 0
+      assign columns_desktop = section.settings.carousel_desktop_count
+    endif
+
+  else
+    assign products_to_display = settings.carousel_products_count
+    assign minimum_products_to_display = settings.carousel_minimum_products
+
+    if section.settings.collection.all_products_count > settings.carousel_products_count
+      assign columns_mobile_int = settings.carousel_mobile_count | plus: 0
+      assign columns_desktop = settings.carousel_desktop_count
+    endif
+  endif
+
+  assign show_mobile_slider = false
+  if products_to_display > columns_mobile_int
+    assign show_mobile_slider = true
+  endif
+
+  assign show_desktop_slider = false
+  if products_to_display > columns_desktop
+    assign show_desktop_slider = true
+  endif
+-%}
+{% style %}
+  {% if section.settings.custom_settings %}
+    .recently-viewed-carousel.section-{{ section.id }} .title {
+      font-size: {{ section.settings.carousel_title_size | times: 0.675 }}rem;
+      color: {{ section.settings.carousel_title_color }};
+   }
+    .recently-viewed-carousel.section-{{ section.id }} .subtitle {
+      font-size: {{ section.settings.carousel_subtitle_size | times: 0.75 }}rem;
+      color: {{ section.settings.carousel_subtitle_color }};
+    }
+
+    @media screen and (min-width: 750px) {
+      .recently-viewed-carousel.section-{{ section.id }} .title {
+        font-size: {{ section.settings.carousel_title_size }}rem;
+      }
+      .recently-viewed-carousel.section-{{ section.id }} .subtitle {
+        font-size: {{ section.settings.carousel_subtitle_size }}rem;
+      }
+    }
+
+    .recently-viewed-carousel.section-{{ section.id }} {
+      --carousel-number-of-products-desktop:{{ section.settings.carousel_desktop_count }};
+      --carousel-number-of-products-tablet:{{ section.settings.carousel_tablet_count }};
+      --carousel-number-of-products-mobile:{{ section.settings.carousel_mobile_count }};
+      --carousel-number-of-products-desktop-floor:{{ section.settings.carousel_desktop_count | floor }};
+      --carousel-number-of-products-tablet-floor:{{ section.settings.carousel_tablet_count | floor }};
+      --carousel-number-of-products-mobile-floor:{{ section.settings.carousel_mobile_count | floor }};
+    }
+  {% endif %}
+{% endstyle %}
+
+<div class="isolate gradient default-spacing">
+  <div
+    class="recently-viewed-carousel {% if section.settings.action_class != blank %}{{ section.settings.action_class }}{% endif %} section-{{ section.id }} collection--full-width js-price-container"
+    data-products_to_show="12"
+    data-minimum_products_to_show="1"
+  >
+    <div class="collection__title page-width collection__title--slider title-wrapper--no-top-margin">
+      {%- if section.settings.title != blank -%}
+        <h2 class="title">{{ section.settings.title | escape }}</h2>
+      {%- endif -%}
+      {%- if section.settings.subtitle != blank -%}
+        <h3 class="subtitle">{{ section.settings.subtitle | escape }}</h3>
+      {%- endif -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Recently viewed",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "default": "Recently viewed",
+      "label": "t:sections.recently-viewed.settings.title.label"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "default": "Subtitle",
+      "label": "t:sections.recently-viewed.settings.subtitle.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "custom_settings",
+      "label": "Show custom settings",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Custom settings"
+    },
+    {
+      "type": "range",
+      "id": "carousel_title_size",
+      "min": 1,
+      "max": 3,
+      "step": 0.1,
+      "unit": "rem",
+      "label": "Carousel Title font size",
+      "default": 2
+    },
+    {
+      "type": "range",
+      "id": "carousel_subtitle_size",
+      "min": 0.5,
+      "max": 3,
+      "step": 0.1,
+      "unit": "rem",
+      "label": "Carousel subtitle font size",
+      "default": 1
+    },
+    {
+      "type": "color",
+      "id": "carousel_title_color",
+      "label": "Carousel title color"
+    },
+    {
+      "type": "color",
+      "id": "carousel_subtitle_color",
+      "label": "Carousel subtitle color"
+    },
+    {
+      "type": "range",
+      "id": "carousel_products_count",
+      "min": 4,
+      "max": 24,
+      "step": 1,
+      "default": 20,
+      "label": "Max products to show"
+    },
+    {
+      "type": "range",
+      "id": "carousel_minimum_products",
+      "min": 1,
+      "max": 10,
+      "step": 1,
+      "default": 3,
+      "label": "Minimum products to show the carousel"
+    },
+    {
+      "type": "range",
+      "id": "carousel_desktop_count",
+      "min": 1,
+      "max": 6,
+      "step": 0.5,
+      "default": 4.5,
+      "label": "Columns desktop"
+    },
+    {
+      "type": "range",
+      "id": "carousel_tablet_count",
+      "min": 1,
+      "max": 6,
+      "step": 0.5,
+      "default": 3.5,
+      "label": "Columns tablet"
+    },
+    {
+      "type": "range",
+      "id": "carousel_mobile_count",
+      "min": 1,
+      "max": 6,
+      "step": 0.5,
+      "default": 2.5,
+      "label": "Columns mobile"
+    },
+    {
+      "type": "header",
+      "content": "Tracking"
+    },
+    {
+      "type": "text",
+      "id": "action_class",
+      "label": "Tracking Class"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Recently viewed"
+    }
+  ]
+}
+{% endschema %}

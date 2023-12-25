@@ -25,6 +25,17 @@
 <noscript>{{ 'component-cart-notification.css' | asset_url | stylesheet_tag }}</noscript>
 <noscript>{{ 'component-cart-items.css' | asset_url | stylesheet_tag }}</noscript>
 
+{{ 'section-header.css' | asset_url | stylesheet_tag }}
+{% liquid 
+  assign drawer-visibility-desktop = section.settings.drawer-visibility-desktop
+  if drawer-visibility-desktop == 'yes'
+    assign show_drawer = 'desktop'
+  else 
+    assign show_drawer = 'mobile'
+  endif
+
+%}
+
 <style>
   header-drawer {
     justify-self: start;
@@ -531,6 +542,13 @@
       "id": "menu",
       "default": "main-menu",
       "label": "t:sections.header.settings.menu.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "drawer-visibility-desktop",
+      "label": "Show drawer on desktop ?",
+      "info": "Selecting this option will show both menu and burger icons in the header if desktop menu type is other than 'drawer'.",
+      "default": true
     },
     {
       "type": "select",
