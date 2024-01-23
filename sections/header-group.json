@@ -19,7 +19,6 @@
       "settings": {
         "color_scheme": "",
         "show_line_separator": true,
-        "heading_size": 1,
         "show_social": false,
         "auto_rotate": false,
         "change_slides_speed": 5,
@@ -49,8 +48,7 @@
             "text_align": "center",
             "img_columns": 6,
             "image_show_missing": "yes",
-            "image_shape": "default",
-            "space_bw_images": 10
+            "image_shape": "default"
           }
         }
       },
@@ -59,11 +57,10 @@
         "96fe275f-6ca0-4ddf-a85b-e35bc8fa4ca1"
       ],
       "settings": {
-        "logo_position": "middle-left",
+        "logo_position": "top-left",
         "menu": "main-menu",
-        "drawer-visibility-desktop": true,
         "menu_type_desktop": "mega",
-        "sticky_header_type": "always",
+        "sticky_header_type": "on-scroll-up",
         "show_line_separator": true,
         "color_scheme": "scheme-1",
         "menu_color_scheme": "",
